@@ -22,7 +22,7 @@ There are many different clustering algorithms that can be used in color quantiz
 
 
 ## Some Background on Images
-Each pixel in the an image has a color with three components: red, green, and blue. Each of these components is a number between 0 and 255. So for example, we can represent the color red by <kbd>(255, 0, 0)</kbd> : this means that the pixel has a red value of 255, and blue and green values of 0. I'll refer to these <kbd>(red, green, blue)</kbd> triples using x, y, and z for red, green, and blue respectively.
+Each pixel in an image has a color with three components: red, green, and blue. Each of these components is a number between 0 and 255. So for example, we can represent the color red by <kbd>(255, 0, 0)</kbd> : this means that the pixel has a red value of 255, and blue and green values of 0. I'll refer to these triples using x, y, and z for red, green, and blue respectively.
 
 Since each pixel has x, y, and z values, we can plot them in 3d. Here is what all of the pixels look like for our sample image:
 
@@ -47,9 +47,41 @@ Now that we can represent each pixel using x,y,z coordinates, it's time to use t
 One cool feature of the K-means algorithm is that it is *guaranteed* to reach a local* optimum (it is not guaranteed to reach the global optimum).
 
 ## Quantization
-
 After running the K-means algorithm, we are left with <kbd>k</kbd> points which represent the centers of each cluster, as well as the pixels that are assigned to each of the points. The quantization step is relatively straightforward: we redraw the original image, but replace each pixel's color with that of its nearest cluster point.
 
 Here is what it looks like for our sample image when <kbd>k = 3</kbd> :
 
 ![Quantized Image]({{site.url}}/assets/quantized_1.png)
+
+The resulting image is visually very similar to the original photo, and the colors depict those in the original fairly accurately. One downside is that the resulting colors are "washed out", or not very bright. To understand why, we have to look into what the K-means algorithm actually did.
+
+For <kbd>k = 3</kbd>, here is what the 3D plot of the pixels looks like:
+
+![Graph K-3]({{site.url}}/assets/graph_k3.png)
+
+Lots of "similar" and "not-so-similar" colors from the original graph got grouped together into one color. Because the K-means algorithm averages all of them together, the resulting colors will not be as bright as the original ones.
+
+## Further Enhancements
+When running the algorithm, we need to choose some value for <kbd>k</kbd>. To see what kind of effects we can get with different values, I ran the algorithm for a couple more values.
+
+### K = 4
+![Quantized K-4]({{site.url}}/assets/quantized_k4.png)
+![Graph K-4]({{site.url}}/assets/graph_k4.png)
+
+### K = 5
+![Quantized K-5]({{site.url}}/assets/quantized_k5.png)
+![Graph K-5]({{site.url}}/assets/graph_k5.png)
+
+### K = 6
+![Quantized K-6]({{site.url}}/assets/quantized_k6.png)
+![Graph K-6]({{site.url}}/assets/graph_k6.png)
+
+As the value of <kbd>k</kbd> increases, the output of the algorithm gets closer and closer to the original image. The colors also get "brighter" since they are averaging a smaller number of colors which are also closer together.
+
+Just for fun, I also ran it with a much larger value.
+
+<div class="alert alert-danger" role="alert">This <strong>will</strong> take a long time to run.</div>
+
+### K = 23
+![Quantized K-23]({{site.url}}/assets/quantized_k23.png)
+![Graph K-23]({{site.url}}/assets/graph_k23.png)
