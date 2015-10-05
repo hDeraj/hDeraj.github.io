@@ -85,3 +85,7 @@ Just for fun, I also ran it with a much larger value.
 ### K = 23
 ![Quantized K-23]({{site.url}}/assets/quantized_k23.png)
 ![Graph K-23]({{site.url}}/assets/graph_k23.png)
+
+I made a simple website where you can try this out with your own images. Try it out and let me know if you have any issues.
+
+[Palette Demo Website](http://hDeraj.github.io/palette)
