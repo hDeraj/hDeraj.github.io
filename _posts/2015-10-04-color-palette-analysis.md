@@ -7,7 +7,7 @@ title: "Palette: Image Color Palette Experiments"
 ## Motivation
 After seeing a [Disney blog post](http://blogs.disney.com/oh-my-disney/2015/05/11/these-disneypixar-palettes-are-the-most-aesthetically-pleasing-things-youll-see-all-day/#Brave) about the different color palettes in Pixar films, I started to wonder if I could write a program to find the main color palette of an image and then make changes to the palette.
 
-For a live demo, click [here](/palette.html)
+For a live demo, click [here](/palette)
 
 We will be using this sample image for the rest of the post.
 
@@ -88,4 +88,4 @@ Just for fun, I also ran it with a much larger value.
 
 I made a simple website where you can try this out with your own images. Try it out and let me know if you have any issues.
 
-[Palette Demo Website](http://hDeraj.github.io/palette)
+[Palette Demo Website](/palette)
